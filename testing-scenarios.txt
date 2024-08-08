@@ -1,0 +1,21 @@
+# Shopping Cart Functionality Testing Scenarios
+
+1. Add a product to the cart:
+   - Verify that a product can be added to the cart from the product listing page.
+   - Ensure that the product is reflected correctly in the cart with the correct name, price, and quantity.
+
+2. Remove a product from the cart:
+   - Test removing a product from the cart and verify that it is no longer displayed.
+   - Confirm that the total price updates correctly after removal.
+
+3. Update product quantity in the cart:
+   - Test updating the quantity of a product in the cart.
+   - Ensure that the cart updates the total price accordingly.
+
+4. Verify cart persistence:
+   - Add a product to the cart, then refresh the page.
+   - Ensure that the cart contents persist after a page refresh.
+
+5. Checkout process initiation:
+   - Verify that the checkout process can be initiated from the cart.
+   - Confirm that the cart displays correct totals and product information at checkout.
