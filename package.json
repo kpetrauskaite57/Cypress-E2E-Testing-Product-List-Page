@@ -4,7 +4,7 @@
   "description": "This repository contains automated end-to-end (E2E) tests for the Products List page located at Products List using Cypress, a modern JavaScript-based testing framework.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+ "open" : "cypress open"
   },
   "keywords": [],
   "author": "",
