@@ -1,21 +1,51 @@
 # Shopping Cart Functionality Testing Scenarios
 
-1. Add a product to the cart:
-   - Verify that a product can be added to the cart from the product listing page.
-   - Ensure that the product is reflected correctly in the cart with the correct name, price, and quantity.
+Add a Product to the Cart:
 
-2. Remove a product from the cart:
-   - Test removing a product from the cart and verify that it is no longer displayed.
-   - Confirm that the total price updates correctly after removal.
+Verify that a product can be successfully added to the cart from the product listing page.
+Ensure that the product is correctly reflected in the cart with accurate details, including the name, price, and quantity.
+Confirm that the product image is displayed correctly in the cart.
+Remove a Product from the Cart:
 
-3. Update product quantity in the cart:
-   - Test updating the quantity of a product in the cart.
-   - Ensure that the cart updates the total price accordingly.
+Test removing a product from the cart and verify that the product is no longer displayed.
+Ensure that the total price in the cart updates correctly after the product is removed.
+Update Product Quantity in the Cart:
 
-4. Verify cart persistence:
-   - Add a product to the cart, then refresh the page.
-   - Ensure that the cart contents persist after a page refresh.
+Test updating the quantity of a product in the cart.
+Ensure that the cart correctly updates the total price based on the new quantity.
+Confirm that the quantity cannot be updated to a negative value or zero.
+Add Multiple Units of the Same Product:
 
-5. Checkout process initiation:
-   - Verify that the checkout process can be initiated from the cart.
-   - Confirm that the cart displays correct totals and product information at checkout.
+Test adding multiple units of the same product to the cart.
+Ensure that the cart reflects the correct quantity and that the total price is updated accordingly.
+Verify that the product is not duplicated in the cart; instead, the quantity should increase.
+Cart Persistence (Not applicable if feature is absent):
+
+Add a product to the cart, then refresh the page.
+Ensure that the cart contents remain intact after the page is refreshed.
+Initiate Checkout Process:
+
+Verify that the checkout process can be initiated from the cart.
+Confirm that the cart displays the correct totals and product information during checkout.
+Check if the cart redirects correctly to the checkout page.
+Post-Purchase Behavior:
+
+After completing a purchase, verify that the cart is cleared automatically.
+Ensure that the user is redirected to a confirmation page or another appropriate page.
+Test whether the system allows a second purchase of the same items immediately after the first purchase.
+Error Handling:
+
+Test scenarios where the cart encounters errors, such as network failures or server issues.
+Verify that appropriate error messages are displayed and that the cart remains functional.
+Cross-Browser Compatibility:
+
+Test the shopping cart functionality across different browsers (e.g., Chrome, Firefox, Safari, Edge).
+Ensure that all features work consistently across these browsers.
+Pop-Up Handling:
+
+Check if any pop-ups appear when interacting with the cart (e.g., adding or removing products).
+Ensure that the pop-ups function correctly and do not interfere with the cart's functionality.
+Preventing Negative or Zero Quantity:
+
+Ensure that the cart does not allow users to set the quantity of a product to a negative value or zero.
+Confirm that the quantity field is properly validated to avoid such scenarios.
