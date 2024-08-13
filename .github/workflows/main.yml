@@ -1,0 +1,66 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:latest
+        ports:
+          - 5432:5432
+        env:
+          POSTGRES_USER: testuser
+          POSTGRES_PASSWORD: testpassword
+          POSTGRES_DB: testdb
+
+    env:
+      DB_USER: testuser
+      DB_HOST: localhost
+      DB_NAME: testdb
+      DB_PASS: testpassword
+      DB_PORT: 5432
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: '16.x'
+
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Start Application
+      run: |
+        nohup npm start &
+        sleep 5
+
+    - name: Wait for Application to Start
+      run: |
+        while ! curl -s http://localhost:3000/api/users > /dev/null; do
+          echo "Waiting for application to start..."
+          sleep 2
+        done
+
+    - name: Run Tests
+      run: npm test
+      continue-on-error: true # Ensure the next step runs even if this one fails
+
+    - name: Generate Test Report
+      run: |
+        mkdir -p testResults
+        newman run postman_collection.json -r htmlextra --reporter-htmlextra-export testResults/htmlreport.html
+      if: always() # This ensures the step runs even if previous steps fail
+
+    - name: Upload Test Report
+      uses: actions/upload-artifact@v2
+      with:
+        name: test-report
+        path: testResults/htmlreport.html
