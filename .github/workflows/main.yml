@@ -27,7 +27,7 @@ jobs:
     - name: Generate Cypress Test Report
       run: |
         mkdir -p testResults
-        npx cypress run --reporter mochawesome --reporter-options reportDir=testResults,overwrite=false,html=false,json=true
+        npx cypress run --reporter mochawesome --reporter-options reportDir=testResults,overwrite=false,html=true,json=false
       continue-on-error: true  # Ensure the report generation runs even if tests fail
 
     - name: Upload Cypress Test Report
