@@ -69,7 +69,7 @@ describe('Shopping Cart Functionality', () => {
   it('should initiate the checkout process', () => {
     cy.get('.content-section').find('.shop-item-button').first().click();
     cy.get('.btn-purchase').click();
-    cy.get('#message', { timeout: 10000 }).should('contain', 'Congrats! Your order');  // Wait for confirmation message
+    cy.get('#message').should('contain', 'Congrats! Your order');  // Wait for confirmation message
     cy.get('#back_to_prods_list').click();
     cy.get('.cart-items .cart-row').should('have.length', 0);
   });
@@ -79,7 +79,7 @@ describe('Shopping Cart Functionality', () => {
     cy.get('.btn-purchase').click();
     cy.get('#back_to_prods_list').click();
     cy.get('.cart-total-price').should('contain', '$0');
-    cy.get('.content-section', { timeout: 10000 }).find('.shop-item-button').first().click();
+    cy.get('.content-section').find('.shop-item-button').first().click();
     cy.get('.btn-purchase').click();
     cy.get('#message').should('contain', 'Congrats! Your order of');
   });
